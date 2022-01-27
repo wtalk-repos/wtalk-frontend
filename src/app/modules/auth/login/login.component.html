@@ -1,86 +1,56 @@
-<div class="container-fluid mt-4 d-flex" style="background-color: #4eac6d;">
+<div class="container-fluid mt-4 d-flex">
 
     <div class="d-flex col-sm-2 col-lg-2">
         <img src="/assets/logo.png" alt="logo img" style="height: 100px; width: 100px;">
         <h2 class="text-center">wTalk</h2>
     </div>
 
-    <div class="col-sm-10 col-lg-10" style="background-color: white;">
+    <div class="col-sm-8 col-lg-8 mx-auto login-container">
        
         <div class="text-center ">
             <h1>Welcome Back !</h1>
             <h4>Sign in to continue to wTalk</h4>
        </div>
 
-       <div>
-           <form>
+       <div class="mx-auto w-50 mt-3">
+           <form class="login-container-form">
                <div class="form-group">
                    <label for="username">Username</label>
                    <input type="text" class="form-control">
                </div>
 
-               <div class="form-group password-input">
+                <div class="form-group input-group">
+                    <div class="d-flex justify-content-between">
                     <label for="password">Password</label>
-                    <div class="password-icons-container">
-                        <input type="password" class="form-control">
-                        <i class="fa fa-eye"></i>
-                        <i class="fa fa-eye-slash" aria-hidden="true" style="display: none;"></i>
+                    <span>Forgot password?</span>
+                    </div>
+                    <div class="input-icon-container">
+                        <input type="password" class="form-control"/>
+                        <i class="fa fa-eye-slash"></i>
+                        <i class="fa fa-eye" aria-hidden="true" style="display: none;"></i>
                     </div>
                 </div>
 
-                <div class="input-group">
-                    <label>Pass</label>
-                    <div class="input-icon-container">
-                        <input type="password"/>
-                        <i class="fa fa-eye-slash"></i>
-                    </div>
+                <div class="form-check d-flex align-items-center mb-4">
+                    <input type="checkbox" class="form-check-input agree-term mb-1" id="remember-me">
+                    <label class="form-check-label ms-2" for="remember-me">Remember me</label>
                 </div>
 
                 <div class="text-center">
-                    <button class="btn btn-login" style="background-color: #4eac6d;" type="submit">Log In</button>
+                    <button class="btn btn-login w-100 btn-login" type="submit">Log In</button>
                 </div>
             
            </form>
+
+           <p class="text-center pt-4">Sign in with</p>
+
+           <div class="d-flex justify-content-between">
+               <button class="btn"><i class="fa fa-facebook-f"></i></button>
+               <button class="btn"><i class="fa fa-twitter"></i></button>
+               <button class="btn"><i class="fa fa-google"></i></button>
+           </div>
+
+           <p class="text-center pt-4" style="color: #797C8C;">Don't have an account? <a href="#">Register</a></p>
        </div>
     </div>
 </div>
-
-<style>
-   
-
-.input-group {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-.input-icon-container{
-  display: flex;
-  flex-direction: row;
-  border: 1px solid #374669;
-  border-radius: 5px;
-  background : #fff;
-  align-items : center;
-  overflow: hidden;
-}
-.input-icon-container input {
-  outline: none;
-  border: none;
-  background: none;
-  font-size: 1em;
-  padding: .5em;
-  color: inherit;
-  flex : auto 1 1;
-  width : 100%;
-  background : none;
-  background-color : rgb(241, 241, 241);
-  border-radius: 10px;
-}
-
-.input-icon-container .fa{
-  padding : 10px;
-}
-
-.password-input{
-
-}
-</style>
