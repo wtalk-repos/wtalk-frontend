@@ -1,8 +1,10 @@
 .login-container {
     background-color: white;
     padding: 50px;
-    -ms-transform: translate(-8%, 20%);
-    transform: translate(-8%, 20%);
+    /* -ms-transform: translate(-8%, 20%);
+    transform: translate(-8%, 20%); */
+    -ms-transform: translate(0%, 17%);
+    transform: translate(0%, 17%);
 }
 
 .login-container label,span {
