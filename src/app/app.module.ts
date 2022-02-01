@@ -9,6 +9,7 @@ import { NotFoundComponent } from './modules/auth/not-found/not-found.component'
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
+import { DashboardComponent } from './modules/shared/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-p
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

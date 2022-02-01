@@ -1,6 +1,7 @@
 .login-container {
     background-color: white;
     padding: 50px;
+    border-radius: 10px;
     /* -ms-transform: translate(-8%, 20%);
     transform: translate(-8%, 20%); */
 }

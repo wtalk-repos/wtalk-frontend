@@ -22,7 +22,7 @@
                 <div class="form-group input-group">
                     <div class="d-flex justify-content-between">
                     <label for="password">Password</label>
-                    <span>Forgot password?</span>
+                    <span><a routerLink="" (click)="redirectForgot()">Forgot password?</a></span>
                     </div>
                     <div class="input-icon-container">
                         <input type="password" class="form-control"/>
@@ -50,7 +50,7 @@
                <button class="btn"><i class="fa fa-google"></i></button>
            </div>
 
-           <p class="text-center pt-4" style="color: #797C8C;">Don't have an account? <a href="#">Register</a></p>
+           <p class="text-center pt-4" style="color: #797C8C;">Don't have an account? <a routerLink="" (click)="redirectRegister()">Register</a></p>
        </div>
     </div>
 </div>

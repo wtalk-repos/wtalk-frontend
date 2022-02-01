@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { RedirectService } from 'src/app/services/redirect.service';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +15,14 @@ export class RegisterComponent implements OnInit {
     repeatPassword: new FormControl('')
   })
 
-  constructor() { }
+  constructor(
+    private redirect: RedirectService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  redirectLogin() {
+    this.redirect.redirectLogin();
+  }
 }
