@@ -21,4 +21,8 @@ export class RedirectService {
   redirectForgot() {
     this.router.navigate(['forgot-password']);
   }
+
+  redirectDashboard() {
+    this.router.navigate(['dashboard']);
+  }
 }

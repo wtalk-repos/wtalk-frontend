@@ -21,6 +21,13 @@ export class LoginComponent implements OnInit {
     window.localStorage.clear();
   }
 
+  onSubmit() {
+    setTimeout(() => {
+      let token = this.createToken()
+      localStorage.setItem('token', token)
+      this.redirect.redirectDashboard();
+    }, 500)
+  }
  
   redirectRegister () {
     this.redirect.redirectRegister();
@@ -28,5 +35,13 @@ export class LoginComponent implements OnInit {
 
   redirectForgot() {
     this.redirect.redirectForgot();
+  }
+
+  randomNumber() {
+    return Math.random().toString(36).substr(2); // remove `0.`
+  }
+
+  createToken() {
+    return this.randomNumber() + this.randomNumber(); // to make it longer
   }
 }

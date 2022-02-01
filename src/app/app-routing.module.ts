@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
+
+import { ProfileComponent } from './components/profile/profile.component';
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { NotFoundComponent } from './modules/auth/not-found/not-found.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
+import { DashboardComponent } from './modules/shared/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -24,6 +28,14 @@ const routes: Routes = [
     path: 'forgot-password',
     component: ForgotPasswordComponent,
     pathMatch: 'full'
+  },
+  {
+    path:'dashboard',
+    component: DashboardComponent,
+    children: [
+      { path: 'profile', component:ProfileComponent }
+    ],
+    canActivate: [AuthGuard],
   },
   {
     path: '**', 

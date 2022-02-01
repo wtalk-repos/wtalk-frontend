@@ -7,9 +7,19 @@ import { LoginComponent } from './modules/auth/login/login.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
 import { NotFoundComponent } from './modules/auth/not-found/not-found.component';
 
+import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
+
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
 import { DashboardComponent } from './modules/shared/dashboard/dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ChatsComponent } from './components/chats/chats.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { CallsComponent } from './components/calls/calls.component';
+import { BookmarkComponent } from './components/bookmark/bookmark.component';
+import { SettingsComponent } from './components/settings/settings.component';
+
 
 @NgModule({
   declarations: [
@@ -18,14 +28,21 @@ import { DashboardComponent } from './modules/shared/dashboard/dashboard.compone
     RegisterComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent,
+    ChatsComponent,
+    ContactsComponent,
+    CallsComponent,
+    BookmarkComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
