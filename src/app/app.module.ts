@@ -9,6 +9,7 @@ import { NotFoundComponent } from './modules/auth/not-found/not-found.component'
 
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { AuthGuard } from './auth.guard';
 
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
@@ -20,6 +21,13 @@ import { CallsComponent } from './components/calls/calls.component';
 import { BookmarkComponent } from './components/bookmark/bookmark.component';
 import { SettingsComponent } from './components/settings/settings.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -34,13 +42,21 @@ import { SettingsComponent } from './components/settings/settings.component';
     ContactsComponent,
     CallsComponent,
     BookmarkComponent,
-    SettingsComponent
+    SettingsComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    LayoutModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

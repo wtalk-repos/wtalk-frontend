@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 
 import { ProfileComponent } from './components/profile/profile.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { NotFoundComponent } from './modules/auth/not-found/not-found.component';
@@ -30,8 +31,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'dashboard',
-    component: DashboardComponent,
+    path:'main-nav',
+    component: MainNavComponent,
     children: [
       { path: 'profile', component:ProfileComponent }
     ],
