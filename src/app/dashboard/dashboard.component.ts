@@ -5,11 +5,11 @@ import { map, shareReplay } from 'rxjs/operators';
 import { RedirectService } from '../services/redirect.service';
 
 @Component({
-  selector: 'app-main-nav',
-  templateUrl: './main-nav.component.html',
-  styleUrls: ['./main-nav.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class MainNavComponent {
+export class DashboardComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -25,5 +25,4 @@ export class MainNavComponent {
   redirectLogin() {
     this.redirect.redirectLogin();
   }
-
 }

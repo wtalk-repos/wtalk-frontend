@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       let token = this.createToken()
       localStorage.setItem('token', token)
-      this.redirect.redirectMainNav();
+      this.redirect.redirectDashboard();
     }, 500)
   }
  

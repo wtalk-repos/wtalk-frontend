@@ -13,7 +13,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { AuthGuard } from './auth.guard';
 
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
-import { DashboardComponent } from './modules/shared/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChatsComponent } from './components/chats/chats.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
@@ -23,11 +22,11 @@ import { SettingsComponent } from './components/settings/settings.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -36,14 +35,13 @@ import { MatListModule } from '@angular/material/list';
     RegisterComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
-    DashboardComponent,
     ProfileComponent,
     ChatsComponent,
     ContactsComponent,
     CallsComponent,
     BookmarkComponent,
     SettingsComponent,
-    MainNavComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

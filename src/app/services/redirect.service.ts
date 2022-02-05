@@ -26,7 +26,4 @@ export class RedirectService {
     this.router.navigate(['dashboard']);
   }
 
-  redirectMainNav () {
-    this.router.navigate(['main-nav']);
-  }
 }
