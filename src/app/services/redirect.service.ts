@@ -23,7 +23,7 @@ export class RedirectService {
   }
 
   redirectDashboard() {
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['dashboard/chats']);
   }
 
 }

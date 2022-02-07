@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { ChatsComponent } from './components/chats/chats.component';
 
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,6 +11,15 @@ import { NotFoundComponent } from './modules/auth/not-found/not-found.component'
 import { RegisterComponent } from './modules/auth/register/register.component';
 
 const routes: Routes = [
+  {
+    path:'dashboard',
+    component: DashboardComponent,
+    children: [
+      { path: 'chats', component:ChatsComponent },
+      { path: 'profile', component:ProfileComponent },
+    ],
+    canActivate: [AuthGuard],
+  },
   {
     path: '',
     redirectTo: 'login',
@@ -28,14 +38,6 @@ const routes: Routes = [
     path: 'forgot-password',
     component: ForgotPasswordComponent,
     pathMatch: 'full'
-  },
-  {
-    path:'dashboard',
-    component: DashboardComponent,
-    children: [
-      { path: 'profile', component:ProfileComponent }
-    ],
-    canActivate: [AuthGuard],
   },
   {
     path: '**', 

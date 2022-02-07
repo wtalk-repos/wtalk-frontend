@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChatComponent } from './modules/shared/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BookmarkComponent,
     SettingsComponent,
     DashboardComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
