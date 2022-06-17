@@ -39,6 +39,8 @@ const routes: Routes = [
     component: ForgotPasswordComponent,
     pathMatch: 'full'
   },
+  { path: 'landing', loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) },
+  { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
   {
     path: '**', 
     component: NotFoundComponent

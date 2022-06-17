@@ -3,11 +3,21 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AccountService {
 
-  constructor() { }
+  constructor(
 
-  loggedIn () {
+  ) { }
+  
+  loggedIn() {
     return !!localStorage.getItem('token');
+  }
+
+  signIn() {
+
+  }
+
+  signUp() {
+
   }
 }

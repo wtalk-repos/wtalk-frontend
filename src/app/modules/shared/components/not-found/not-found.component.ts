@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RedirectService } from 'src/app/services/redirect.service';
+import { RedirectService } from 'src/app/core/services/redirect.service';
 
 @Component({
   selector: 'app-not-found',
