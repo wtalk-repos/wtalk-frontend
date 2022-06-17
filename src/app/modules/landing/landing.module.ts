@@ -11,8 +11,8 @@ import { SharedModule } from '../shared/shared.module';
     LandingComponent
   ],
   imports: [
-    SharedModule,
     CommonModule,
+    SharedModule,
     LandingRoutingModule
   ]
 })

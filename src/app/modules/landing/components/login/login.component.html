@@ -1,31 +1,31 @@
 <div class="container-fluid mt-4 d-flex">
 
-    <div class="d-flex col-sm-2 col-lg-2">
+    <!-- <div class="d-flex col-sm-2 col-lg-2">
         <img src="/assets/logo.png" alt="logo img" style="height: 100px; width: 100px;">
         <h2 class="text-center">wTalk</h2>
-    </div>
+    </div> -->
 
     <div class="col-sm-8 col-lg-8 mx-auto login-container">
-       
+
         <div class="text-center ">
             <h1>Welcome Back !</h1>
             <h4>Sign in to continue to wTalk</h4>
-       </div>
+        </div>
 
-       <div class="mx-auto w-50 mt-3">
-           <form class="login-container-form">
-               <div class="form-group">
-                   <label for="username">Username</label>
-                   <input type="text" class="form-control">
-               </div>
+        <div class="mx-auto w-50 mt-3">
+            <form class="login-container-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control">
+                </div>
 
                 <div class="form-group input-group">
                     <div class="d-flex justify-content-between">
-                    <label for="password">Password</label>
-                    <span><a routerLink="" (click)="redirectForgot()">Forgot password?</a></span>
+                        <label for="password">Password</label>
+                        <span><a routerLink="" (click)="redirectForgot()">Forgot password?</a></span>
                     </div>
                     <div class="input-icon-container">
-                        <input type="password" class="form-control"/>
+                        <input type="password" class="form-control" />
                         <i class="fa fa-eye-slash"></i>
                         <i class="fa fa-eye" aria-hidden="true" style="display: none;"></i>
                     </div>
@@ -37,20 +37,20 @@
                 </div>
 
                 <div class="text-center">
-                    <button class="btn btn-login w-100 btn-login" type="submit" (click)="onSubmit()">Log In</button>
+                    <button class="btn btn-login w-100 btn-login" type="button" (click)="onSubmit()">Log In</button>
                 </div>
-            
-           </form>
 
-           <p class="text-center pt-4">Sign in with</p>
+            </form>
 
-           <div class="d-flex justify-content-between">
-               <button class="btn"><i class="fa fa-facebook-f"></i></button>
-               <button class="btn"><i class="fa fa-twitter"></i></button>
-               <button class="btn"><i class="fa fa-google"></i></button>
-           </div>
+            <p class="text-center pt-4">Sign in with</p>
 
-           <p class="text-center pt-4" style="color: #797C8C;">Don't have an account? <a routerLink="" (click)="redirectRegister()">Register</a></p>
-       </div>
+            <div class="d-flex justify-content-between">
+                <button class="btn"><i class="fa fa-facebook-f"></i></button>
+                <button class="btn"><i class="fa fa-twitter"></i></button>
+                <button class="btn"><i class="fa fa-google"></i></button>
+            </div>
+
+            <p class="text-center pt-4" style="color: #797C8C;">Don't have an account? <a routerLink="" (click)="redirectRegister()">Register</a></p>
+        </div>
     </div>
 </div>

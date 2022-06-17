@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { RedirectService } from 'src/app/services/redirect.service';
+import { RedirectService } from 'src/app/core/services/redirect.service';
 
 @Component({
   selector: 'app-login',
@@ -19,17 +19,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     window.localStorage.clear();
+    console.log('ovo')
   }
 
   onSubmit() {
-    setTimeout(() => {
-      let token = this.createToken()
-      localStorage.setItem('token', token)
-      this.redirect.redirectDashboard();
-    }, 500)
+    let token = this.createToken()
+    localStorage.setItem('token', token)
+    console.log('ovo se desi')
+    this.redirect.redirectDashboard();
   }
- 
-  redirectRegister () {
+
+  redirectRegister() {
     this.redirect.redirectRegister();
   }
 

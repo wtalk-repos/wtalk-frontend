@@ -18,6 +18,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     else {
+      console.log('izbacen')
       this.router.navigate(['login']);
       return false;
     }

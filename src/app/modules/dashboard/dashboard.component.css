@@ -18,11 +18,27 @@
 
 a {
     font-size: 1.5rem;
+    margin-top: .7em;
+}
+
+i,
+mat-icon {
+    margin: auto;
 }
 
 .nav-items {
     width: 280px;
-    height: 100vh;
+    min-height: 100vh;
     /* needs to be height: 100% */
     background-color: #eeeee4;
+}
+
+.switch-mode {
+    padding-bottom: .5em;
+    position: absolute;
+    bottom: 3em;
+}
+
+.chosen {
+    background-color: #4eac6d;
 }

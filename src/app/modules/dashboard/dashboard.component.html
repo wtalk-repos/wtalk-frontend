@@ -1,43 +1,45 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false" style="background-color: #2e2e2e;">
-        <mat-nav-list style="color: antiquewhite;">
-            <img src="/assets/logo.png" alt="logo img" class="logo-img" style="height: 70px; width: 70px;">
-            <a mat-list-item><i class="fa fa-user-circle"></i></a>
-            <a mat-list-item [routerLink]="'/dashboard/chats'" [routerLinkActive]="['active']"><i class="fa fa-comments"></i></a>
-            <a mat-list-item><i class="fa fa-list"></i></a>
-            <a mat-list-item><i class="fa fa-phone"></i></a>
-            <a mat-list-item>
+        <mat-nav-list class="text-center" style="color: antiquewhite;">
+            <img src="/assets/logo.png" alt="logo img" class="logo-img mt-3" style="height: 70px; width: 70px;">
+            <a mat-list-item [routerLink]="'/dashboard/profile'" [routerLinkActive]="['chosen']"><i class="fa fa-user-circle"></i></a>
+            <a mat-list-item [routerLink]="'/dashboard/chats'" [routerLinkActive]="['chosen']"><i class="fa fa-comments"></i></a>
+            <a mat-list-item [routerLink]="'/dashboard/contacts'" [routerLinkActive]="['chosen']"><i class="fa fa-list"></i></a>
+            <a mat-list-item [routerLink]="'/dashboard/calls'" [routerLinkActive]="['chosen']"><i class="fa fa-phone"></i></a>
+            <a mat-list-item [routerLink]="'/dashboard/bookmarks'" [routerLinkActive]="['chosen']">
                 <mat-icon>bookmarks</mat-icon>
             </a>
-            <a mat-list-item>
+            <a mat-list-item [routerLink]="'/dashboard/settings'" [routerLinkActive]="['chosen']">
                 <mat-icon>settings</mat-icon>
             </a>
 
-            <a mat-list-item>
-                <mat-icon>nightlight_round</mat-icon>
-            </a>
-            <a mat-list-item style="display: none;">
-                <mat-icon>light_mode</mat-icon>
-            </a>
-            <div class="btn btn btn-primary" (click)="redirectLogin()">Log Out</div>
+            <div class="switch-mode">
+                <a mat-list-item class="mb-2">
+                    <mat-icon>nightlight_round</mat-icon>
+                </a>
+                <a mat-list-item style="display: none;">
+                    <mat-icon>light_mode</mat-icon>
+                </a>
+                <div class="btn btn" style="background-color: #4eac6d; color: #ffffff;" (click)="redirectLogin()">Log Out</div>
+            </div>
             <!-- circle image of user -->
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
         </mat-toolbar>
         <!-- Add Content Here -->
 
         <div class="d-flex">
             <div class="nav-items d-flex">
+
+            </div>
+            <div class="w-100" style="background-image: url('assets/background.jpg');">
                 <router-outlet></router-outlet>
             </div>
-            <!-- <div class="w-100" style="background-image: url('assets/background.jpg');">
-        <app-chat></app-chat>
-      </div> -->
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
