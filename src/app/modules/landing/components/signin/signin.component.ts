@@ -3,11 +3,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { RedirectService } from 'src/app/core/services/redirect.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
+
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
