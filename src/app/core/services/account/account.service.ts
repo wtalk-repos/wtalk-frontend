@@ -32,8 +32,8 @@ export class AccountService {
     let url = `${this.configuration.apiUrl}/account/signin`;
     return this.http.post<SignInResponse>(url, userCredentials).pipe(
       map((signInResponse: SignInResponse) => {
-        console.log(signInResponse);
-        return signInResponse
+        this.tokenService.setAccessToken(signInResponse.accessToken);
+        return signInResponse;
       })) as Observable<SignInResponse>;
   }
 

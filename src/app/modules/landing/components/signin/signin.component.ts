@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import UserCredentials from 'src/app/core/cqrs/commands/account/sign-in-command';
 import { AccountService } from 'src/app/core/services/account/account.service';
 import { RedirectService } from 'src/app/core/services/redirect.service';
@@ -18,7 +19,8 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private redirect: RedirectService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -40,10 +42,13 @@ export class SignInComponent implements OnInit {
   createToken() {
     return this.randomNumber() + this.randomNumber(); // to make it longer
   }
+
   signIn() {
     let userCredentials = new UserCredentials();
     userCredentials.email = this.loginForm.value.email;
     userCredentials.password = this.loginForm.value.password;
-    this.accountService.signIn(userCredentials).subscribe();
+    this.accountService.signIn(userCredentials).subscribe(()=>{
+      this.router.navigate(['dashboard','chat'])
+    });
   }
 }

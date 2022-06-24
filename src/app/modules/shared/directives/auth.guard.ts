@@ -30,13 +30,13 @@ export class AuthGuard implements CanActivate {
         return true;
       }), catchError(
         (e: any) => {
-          this.router.navigate(['login']);
+          this.router.navigate(['signin']);
           return throwError(e);
         })) as Observable<boolean>;
 
 
     }
-    this.router.navigate(['login']);
+    this.router.navigate(['signin']);
     return false;
   }
 
@@ -45,7 +45,7 @@ export class AuthGuard implements CanActivate {
     if (this.accountService.isUserAuthenticated() == false) {
       let refreshTokenCommand = new RefreshTokenCommand();
       refreshTokenCommand.refreshToken = this.tokenService.getRefreshToken();
-      refreshTokenCommand.userId = this.accountService.user.id;
+      refreshTokenCommand.userId = this.accountService.user?.id;
       return this.tokenService.refreshToken(refreshTokenCommand).pipe(map((data) => {
         if (route.data.roles && route.data.roles.some((r: any) => user.roles.indexOf(r) >= 0) == false) {
 
@@ -55,7 +55,7 @@ export class AuthGuard implements CanActivate {
         }
         return true;
       }), catchError((e: any) => {
-        this.router.navigate(['login']);
+        this.router.navigate(['signin']);
         return throwError(e);
       })) as Observable<boolean>;
 

@@ -1,7 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { DataStorageService } from 'src/app/core/services/data-storage/data-storage.service';
 import { RedirectService } from 'src/app/core/services/redirect.service';
 
 @Component({
@@ -19,13 +21,17 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private redirect: RedirectService
+    private router: Router,
+    private dataStorage: DataStorageService,
   ) { }
 
-  redirectLogin() {
-    this.redirect.redirectLogin();
-  }
   ngOnInit(): void {
-      
+
   }
+
+  signOut() {
+    this.dataStorage.clearAllData();
+    this.router.navigate(['signin']);
+  }
+
 }
