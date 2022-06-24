@@ -1,5 +1,6 @@
 import { LayoutModule } from "@angular/cdk/layout";
 import { CommonModule } from "@angular/common";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
@@ -15,26 +16,30 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     ],
     imports: [
         CommonModule,
-        ReactiveFormsModule,
         FormsModule,
         MatToolbarModule,
         MatIconModule,
         LayoutModule,
         MatButtonModule,
         MatSidenavModule,
-        MatListModule
+        MatListModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     exports: [
         CommonModule,
- 
-        ReactiveFormsModule,
         FormsModule,
         MatToolbarModule,
         MatIconModule,
         LayoutModule,
         MatButtonModule,
         MatSidenavModule,
-        MatListModule
+        MatListModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
+    providers: [
+        
     ]
 })
 export class SharedModule { }
