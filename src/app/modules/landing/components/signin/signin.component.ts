@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import UserCredentials from 'src/app/core/commands/account/sign-in-command';
+import UserCredentials from 'src/app/core/cqrs/commands/account/sign-in-command';
 import { AccountService } from 'src/app/core/services/account/account.service';
 import { RedirectService } from 'src/app/core/services/redirect.service';
 
@@ -12,7 +12,7 @@ import { RedirectService } from 'src/app/core/services/redirect.service';
 export class SignInComponent implements OnInit {
 
   loginForm = new FormGroup({
-    username: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl('')
   })
 

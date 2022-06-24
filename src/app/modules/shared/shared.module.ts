@@ -8,6 +8,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
+import { TokenService } from "src/app/core/services/account/token.service";
+import { AuthGuard } from "./directives/auth.guard";
 
 
 @NgModule({
@@ -39,7 +42,13 @@ import { MatToolbarModule } from "@angular/material/toolbar";
         HttpClientModule
     ],
     providers: [
-        
+        AuthGuard,
+        JwtHelperService,
+        {
+            provide: JWT_OPTIONS,
+            useValue: JWT_OPTIONS
+        },
+        TokenService
     ]
 })
 export class SharedModule { }
