@@ -13,7 +13,7 @@ import { RedirectService } from 'src/app/core/services/redirect.service';
 export class SignInComponent implements OnInit {
 
   loginForm = new FormGroup({
-    email: new FormControl(''),
+    username: new FormControl(''),
     password: new FormControl('')
   })
 
@@ -45,7 +45,7 @@ export class SignInComponent implements OnInit {
 
   signIn() {
     let userCredentials = new UserCredentials();
-    userCredentials.email = this.loginForm.value.email;
+    userCredentials.username = this.loginForm.value.username;
     userCredentials.password = this.loginForm.value.password;
     this.accountService.signIn(userCredentials).subscribe(()=>{
       this.router.navigate(['dashboard','chat'])
