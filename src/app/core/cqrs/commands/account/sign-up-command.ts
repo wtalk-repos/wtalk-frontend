@@ -1,4 +1,4 @@
-export default class SignUpCommand{
+export class SignUpCommand{
     email:string;
     password:string;
     firstName:string;

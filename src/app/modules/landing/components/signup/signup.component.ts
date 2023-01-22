@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import SignUpCommand from 'src/app/core/cqrs/commands/account/sign-up-command';
+import { SignUpCommand } from 'src/app/core/cqrs/commands/account/sign-up-command';
 import { AccountService } from 'src/app/core/services/account/account.service';
 import { RedirectService } from 'src/app/core/services/redirect.service';
 
@@ -19,17 +19,17 @@ export class SingUpComponent implements OnInit {
 
   constructor(
     private redirect: RedirectService,
-    private accountService:AccountService
+    private accountService: AccountService
   ) { }
 
   ngOnInit(): void {
   }
 
-  signup(){
-    let signupCommand=this.signupForm.value as SignUpCommand;
-    this.accountService.signUp(signupCommand).subscribe(()=>{
+  signup() {
+    let signupCommand = this.signupForm.value as SignUpCommand;
+    this.accountService.signUp(signupCommand).subscribe(() => {
       // successful message
-      this.redirect.redirectLogin();  
+      this.redirect.redirectLogin();
     });
   }
   redirectLogin() {

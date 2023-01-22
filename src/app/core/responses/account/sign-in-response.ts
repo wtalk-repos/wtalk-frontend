@@ -1,6 +1,6 @@
-export default class SignInResponse {
+export class SignInResponse {
     firstName: string;
     lastName: string;
-    accessToken: string;
+    token: string;
     refreshToken: string;
 }

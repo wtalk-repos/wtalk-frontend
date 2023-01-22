@@ -1,4 +1,4 @@
-export default class UserCredentials {
+export class UserCredentials {
     username: string;
     password: string;
 }

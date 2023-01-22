@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
-import { LandingComponent } from './landing.component';
-import { SharedModule } from '../shared/shared.module';
+import { LandingComponent } from './pages/landing.component';
 import { SignInComponent } from './components/signin/signin.component';
-import { AccountService } from 'src/app/core/services/account/account.service';
 import { SingUpComponent } from './components/signup/signup.component';
+import { SharedModule } from '@shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { SingUpComponent } from './components/signup/signup.component';
     LandingRoutingModule,
   ],
   providers: [
-    AccountService
   ]
 })
 export class LandingModule { }

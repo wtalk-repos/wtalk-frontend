@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import UserCredentials from 'src/app/core/cqrs/commands/account/sign-in-command';
+import { UserCredentials } from 'src/app/core/cqrs/commands/account/sign-in-command';
 import { AccountService } from 'src/app/core/services/account/account.service';
 import { RedirectService } from 'src/app/core/services/redirect.service';
 
@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private redirect: RedirectService,
     private accountService: AccountService,
-    private router:Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -47,8 +47,8 @@ export class SignInComponent implements OnInit {
     let userCredentials = new UserCredentials();
     userCredentials.username = this.loginForm.value.username;
     userCredentials.password = this.loginForm.value.password;
-    this.accountService.signIn(userCredentials).subscribe(()=>{
-      this.router.navigate(['dashboard','chat'])
+    this.accountService.signIn(userCredentials.username, userCredentials.password).subscribe(() => {
+      this.router.navigate(['menu', 'chat'])
     });
   }
 }
