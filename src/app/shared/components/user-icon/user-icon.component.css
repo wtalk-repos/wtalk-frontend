@@ -1,0 +1,16 @@
+img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+.circle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.wrapper {
+    position: relative;
+    width: 2em;
+}

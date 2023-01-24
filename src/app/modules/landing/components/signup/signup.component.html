@@ -1,0 +1,71 @@
+<div class="container-fluid mt-4 d-flex">
+
+    <div class="d-flex col-sm-2 col-lg-2">
+        <img src="/assets/logo.png" alt="logo img" style="height: 100px; width: 100px;">
+        <h2 class="text-center">wTalk</h2>
+    </div>
+
+    <div class="col-sm-8 col-lg-8 mx-auto mt-4 login-container">
+
+        <div class="text-center ">
+            <h1>Register Account</h1>
+            <h4>Get your free wTalk account now.</h4>
+        </div>
+
+        <div class="mx-auto w-50 mt-3">
+            <form class="login-container-form" [formGroup]="signupForm" (submit)="signup()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email1">Email address</label>
+                    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="d-flex justify-content-between">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-icon-container">
+                        <input type="password" class="form-control" />
+                        <i class="fa fa-eye-slash"></i>
+                        <i class="fa fa-eye" aria-hidden="true" style="display: none;"></i>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="d-flex justify-content-between">
+                        <label for="repeatPassword">Repeat Password</label>
+                    </div>
+                    <div class="input-icon-container">
+                        <input type="password" class="form-control" />
+                        <i class="fa fa-eye-slash"></i>
+                        <i class="fa fa-eye" aria-hidden="true" style="display: none;"></i>
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <span>By registering you agree to the wTalk <a href="#">Terms of Use</a></span>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-login w-100 mt-3 btn-login" type="submit">Register</button>
+                </div>
+
+            </form>
+
+            <p class="text-center pt-4">Sign up with</p>
+
+            <div class="d-flex justify-content-between">
+                <button class="btn"><i class="fa fa-facebook-f"></i></button>
+                <button class="btn"><i class="fa fa-twitter"></i></button>
+                <button class="btn"><i class="fa fa-google"></i></button>
+            </div>
+
+            <p class="text-center pt-4" style="color: #797C8C;">Already have an account? <a routerLink="" (click)="redirectLogin()">Login</a></p>
+        </div>
+    </div>
+</div>

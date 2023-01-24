@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './components/signin/signin.component';
 import { SingUpComponent } from './components/signup/signup.component';
-import { LandingComponent } from './landing.component';
+import { LandingComponent } from './pages/landing.component';
 
 const routes: Routes = [
   {

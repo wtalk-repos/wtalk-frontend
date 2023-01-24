@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChatComponent } from '../shared/chat/chat.component';
-import { AuthGuard } from '../shared/directives/auth.guard';
+import { AuthGuardService } from '@shared/directives/auth.guard';
+import { ChatComponent } from './pages/chat/chat.component';
 
 const routes: Routes = [{
     path: '',
     component: ChatComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardService],
 }];
 
 @NgModule({

@@ -1,38 +1,77 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { TokenService } from './token.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs/operators';
-import UserCredentials from '../../commands/account/sign-in-command';
-import SignUpCommand from '../../commands/account/sign-up-command';
-
-import SignInResponse from '../../responses/account/sign-in-response';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { NewIdResponse } from 'src/app/shared/api-responses/new-id-response';
 import { ConfigurationService } from '../configuration/configuration.service';
+import { User } from '@shared/models/user';
+import { UserRole } from '@shared/enums/user-role';
+import { SignInResponse } from '@core/responses/account/sign-in-response';
+import { SignUpCommand } from '@core/cqrs/commands/account/sign-up-command';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AccountService {
-
   constructor(
-    private _http: HttpClient,
-    private _configuration: ConfigurationService
+    private http: HttpClient,
+    private tokenService: TokenService,
+    private jwtHelper: JwtHelperService,
+    private configuration: ConfigurationService
   ) { }
 
-  loggedIn() {
+  get isLoggedIn() {
     return !!localStorage.getItem('token');
   }
+  get isTokenValid(): boolean {
+    let accessToken = this.tokenService.getAccessToken();
+    return !this.jwtHelper.isTokenExpired(accessToken);
+  }
 
-  signIn(userCredentials: UserCredentials): Observable<SignInResponse> {
-    let url = `${this._configuration.apiUrl}/account/signin`;
-    return this._http.post<SignInResponse>(url, userCredentials).pipe(
-      map((signInResponse: SignInResponse) => {
-        console.log(signInResponse);
-        return signInResponse
-      })) as Observable<SignInResponse>;
+  _currentUser: User | undefined = undefined;
+  get currentUser(): User {
+    if (!this._currentUser) {
+      let token = this.tokenService.getAccessToken();
+      let tokenData = this.jwtHelper.decodeToken(token);
+      console.log(tokenData);
+      this._currentUser = new User(
+        tokenData.UserId,
+        tokenData.email,
+        tokenData.role
+      ); // TODO: get user roles
+    }
+    return this._currentUser;
+  }
+
+  signIn(username: string, password: string): Observable<SignInResponse> {
+    let url = `${this.configuration.apiUrl}account/login`;
+    return this.http
+      .post<SignInResponse>(url, {
+        username: username,
+        password: password,
+      })
+      .pipe(
+        map((signInResponse: SignInResponse) => {
+          this.tokenService.setAccessToken(signInResponse.token);
+          return signInResponse;
+        })
+      ) as Observable<SignInResponse>;
   }
 
   signUp(signUpCommand: SignUpCommand) {
-    let url = `${this._configuration.apiUrl}/account/signup`;
-    return this._http.post(url, signUpCommand) as Observable<SignUpCommand>;
+    let url = `${this.configuration.apiUrl}account/register`;
+    return this.http.post(url, signUpCommand) as Observable<NewIdResponse>;
+  }
+
+  logout(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      localStorage.clear();
+      this._currentUser = undefined;
+      resolve(true);
+    });
+  }
+
+  isCurrentUserInRole(role: UserRole): boolean {
+    return this.currentUser.role == role.toString();
   }
 }

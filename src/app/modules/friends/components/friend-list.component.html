@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div class="header">Chats</div>
+
+    <ul class="friend-list">
+        <li *ngFor="let friend of paginationFriends.items"
+            [ngClass]="['friend-list-item', selectedFriend?.id==friend.id?'friend-list-item--selected':'']"
+            (click)="selectFriendFromList(friend)">
+            <div class="row">
+                <div class="col-3">
+                    <app-user-icon></app-user-icon>
+                </div>
+                <div class="col-8 text-center d-flex align-items-center">
+                    {{friend.fullName}}
+                </div>
+                <div class="col-1">
+
+                </div>
+            </div>
+
+        </li>
+    </ul>
+</div>
