@@ -1,9 +1,32 @@
+:host {
+    width: 100%;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.25em 0.5em;
+}
+
 .wrapper {
-    padding: 1em;
     height: 100%;
 }
 
-ul {
+.friend-list {
     list-style: none;
     padding: 0;
+}
+
+.friend-list-item {
+    padding: 0.5em 1em;
+    width: 100%;
+}
+
+.friend-list-item:hover {
+    cursor: pointer;
+}
+
+.friend-list-item--selected {
+    background-color: #4eac6d;
+    color: white;
 }

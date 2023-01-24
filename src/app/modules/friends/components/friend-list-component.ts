@@ -14,6 +14,8 @@ export class FriendListComponent implements OnInit {
     paginationParameters: PaginationParameters = new PaginationParameters({
         pageSize: 100,
     })
+    selectedFriend: Friend;
+
     constructor(
         private friendService: FriendService
     ) { }
@@ -27,5 +29,7 @@ export class FriendListComponent implements OnInit {
             this.paginationFriends = pagination;
         });
     }
-
+    selectFriendFromList(friend: Friend) {
+        this.selectedFriend = friend;
+    }
 }
