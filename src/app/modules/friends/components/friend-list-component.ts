@@ -31,5 +31,6 @@ export class FriendListComponent implements OnInit {
     }
     selectFriendFromList(friend: Friend) {
         this.selectedFriend = friend;
+        this.friendService.selectedFriend.next(friend);
     }
 }
