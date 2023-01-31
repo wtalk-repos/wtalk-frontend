@@ -5,12 +5,14 @@ import { Pagination } from '@shared/api-responses/pagination';
 import { Friend } from '@shared/models/friend';
 import { PaginationParameters } from '@shared/models/pagination-parameters';
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FriendService {
+  selectedFriend: BehaviorSubject<Friend> = new BehaviorSubject<Friend>(undefined as any);
 
   constructor(
     private _http: HttpClient,
