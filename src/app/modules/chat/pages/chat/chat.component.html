@@ -1,6 +1,10 @@
 <ng-container *ngIf="selectedFriend;else notSelectedFriend">
-    <div class="h-100">
+    <div class="h-100 d-flex flex-column">
         <app-chat-header [friend]="selectedFriend"></app-chat-header>
+        <div class="messages flex-grow-1 flex-shrink-1">
+
+        </div>
+        <app-chat-user-input></app-chat-user-input>
     </div>
 </ng-container>
 
