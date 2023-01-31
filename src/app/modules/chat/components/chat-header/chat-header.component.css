@@ -1,0 +1,14 @@
+.wrapper {
+    background-color: white;
+}
+
+.friend-avatar-container {
+    padding: 0 2em;
+}
+
+.friend-info-container {}
+
+.friend-full-name {
+    font-weight: bold;
+    font-size: 1.5rem;
+}

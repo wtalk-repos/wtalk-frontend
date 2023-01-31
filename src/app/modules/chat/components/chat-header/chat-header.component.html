@@ -1,0 +1,18 @@
+<div class="row g-0 wrapper">
+
+    <div class="col-8 d-flex flex-row">
+        <div class="d-flex align-items-center friend-avatar-container">
+            <app-user-icon [avatar]="friend.avatar" [online]="friend.online"></app-user-icon>
+        </div>
+        <div class="d-flex flex-column friend-info-container">
+            <div class="friend-full-name">
+                {{friend.fullName}}
+            </div>
+            <div class="friend-online-status">
+                {{friend.onlineStatusText}}
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+    </div>
+</div>
