@@ -4,7 +4,7 @@ import { GeneralConstants } from 'src/app/core/constants/general';
 @Component({
   selector: 'app-user-icon',
   templateUrl: './user-icon.component.html',
-  styleUrls: ['./user-icon.component.css']
+  styleUrls: ['./user-icon.component.scss']
 })
 export class UserIconComponent implements OnInit {
   @Input() avatar: any;

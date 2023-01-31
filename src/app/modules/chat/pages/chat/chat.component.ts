@@ -5,7 +5,7 @@ import { FriendService } from "src/app/modules/friends/services/friends.service"
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
   selectedFriend: Friend;

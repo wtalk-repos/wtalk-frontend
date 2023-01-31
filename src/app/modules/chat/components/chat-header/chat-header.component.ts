@@ -4,7 +4,7 @@ import { Friend } from '@shared/models/friend';
 @Component({
   selector: 'app-chat-header',
   templateUrl: './chat-header.component.html',
-  styleUrls: ['./chat-header.component.css']
+  styleUrls: ['./chat-header.component.scss']
 })
 export class ChatHeaderComponent implements OnInit {
   @Input() friend: Friend;
