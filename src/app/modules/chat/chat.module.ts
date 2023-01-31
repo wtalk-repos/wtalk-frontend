@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './pages/chat/chat.component';
+import { ChatHeaderComponent } from './components/chat-header/chat-header.component';
 
 
 
 
 @NgModule({
   declarations: [
-    ChatComponent
+    ChatComponent,
+    ChatHeaderComponent
   ],
   imports: [
     CommonModule,
