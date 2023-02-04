@@ -5,6 +5,9 @@ import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './pages/chat/chat.component';
 import { ChatHeaderComponent } from './components/chat-header/chat-header.component';
 import { ChatUserInputComponent } from './components/chat-user-input/chat-user-input.component';
+import { ChatMessagesComponent } from './components/chat-messages/chat-messages.component';
+import { SignalRService } from './services/signal-r.service';
+import { MessageService } from './services/message.service';
 
 
 
@@ -13,12 +16,17 @@ import { ChatUserInputComponent } from './components/chat-user-input/chat-user-i
   declarations: [
     ChatComponent,
     ChatHeaderComponent,
-    ChatUserInputComponent
+    ChatUserInputComponent,
+    ChatMessagesComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ChatRoutingModule
+  ],
+  providers:[
+    SignalRService,
+    MessageService
   ]
 })
 export class ChatModule { }

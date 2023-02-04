@@ -1,8 +1,8 @@
 <div class="wrapper">
     <div class="header">Chats</div>
 
-    <ul class="friend-list">
-        <li *ngFor="let friend of paginationFriends?.items"
+    <ul class="friend-list" *ngIf="paginationFriends">
+        <li *ngFor="let friend of paginationFriends.items"
             [ngClass]="['friend-list-item', selectedFriend?.id==friend.id?'friend-list-item--selected':'']"
             (click)="selectFriendFromList(friend)">
             <div class="row">

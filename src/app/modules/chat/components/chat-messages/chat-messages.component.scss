@@ -1,0 +1,49 @@
+@import "src/styles/variables";
+
+.wrapper {
+    padding: 1em 1em 0em 1em;
+}
+
+.chat-list {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.chat-avatar {
+    margin-right: 1em;
+}
+
+//
+.right {
+    text-align: right !important;
+    justify-content: end;
+
+
+    .ctext-wrap-content {
+        background-color: $secondary;
+        box-shadow: none;
+        text-align: right;
+    }
+
+    .conversation-list {
+        flex-direction: row-reverse;
+    }
+
+    .chat-avatar {
+        margin-right: 0;
+        margin-left: 1em;
+    }
+}
+
+.conversation-list {
+    display: inline-flex;
+    position: relative;
+    align-items: flex-end;
+    max-width: 80%;
+}
+
+.ctext-wrap-content {
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(15 34 58 / 12%);
+    padding: 0.75em 1.25em;
+}
