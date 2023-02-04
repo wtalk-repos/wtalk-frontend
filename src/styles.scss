@@ -1,8 +1,22 @@
 @import "src/styles/variables";
 @import '../node_modules/bootstrap/scss/bootstrap';
+@import 'src/styles/bootstrap-customization';
 
+mat-dialog-container {
+    width: 100%;
+    margin: auto;
+    background-color: white !important;
+    position: relative;
+}
 
+mat-icon {
+    display: flex!important;
+    align-self: center;
+    justify-content: center;
+}
 
-body {
-    background-color: $primary;
+@media (max-width: 700px) {
+    mat-dialog-container {
+        max-width: 80vw;
+    }
 }

@@ -18,12 +18,19 @@ export class MenuComponent implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
-
+  sidenavContentStyle: any;
+  showSidenav: boolean = true;
+  
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
     private dataStorage: DataStorageService,
-  ) { }
+  ) {
+    this.sidenavContentStyle = {
+      height: (window.innerHeight - 64).toString() + 'px',
+      overflow: 'auto',
+    };
+  }
 
   ngOnInit(): void {
 

@@ -1,44 +1,31 @@
-.sidenav-container {
+.mat-drawer-container {
+    height: 100vh !important;
+    overflow: hidden;
+}
+
+.mat-drawer {
+    max-width: 4em;
+}
+
+.mat-nav-list {
     height: 100%;
+    padding: 0;
 }
 
-.sidenav .mat-toolbar {
-    background: inherit;
+::ng-deep .mat-list-item .mat-list-item-content {
+    justify-content: center;
+    color: white;
+    font-size: 1em;
 }
 
-.mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
+::ng-deep .mat-list-item .mat-list-item-content mat-icon {
+    font-size: 1em;
 }
 
-.logo-img {
-    filter: brightness(2.75);
+.mat-nav-list {
+    background-color: #373737;
 }
 
-a {
-    font-size: 1.5rem;
-    margin-top: .7em;
-}
-
-i,
-mat-icon {
-    margin: auto;
-}
-
-.nav-items {
-    width: 22em;
-    min-height: 100vh;
-    /* needs to be height: 100% */
-    background-color: #eeeee4;
-}
-
-.switch-mode {
-    padding-bottom: .5em;
-    position: absolute;
-    bottom: 3em;
-}
-
-.chosen {
-    background-color: #4eac6d;
+.mat-drawer-content {
+    margin-left: 4em;
 }
