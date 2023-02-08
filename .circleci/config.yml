@@ -22,7 +22,7 @@ jobs:
       - run:
           command: sudo apt install -y lftp
       - run:
-          command: lftp -e "set ssl:verify-certificate no; open $FTP_HOST; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --verbose --delete ./dist/ $FTP_TARGET_DIR;bye;"
+          command: lftp -e "set ssl:verify-certificate no; open $FTP_HOST -p $FTP_PORT; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --verbose --delete ./dist/ $FTP_TARGET_DIR;bye;"
 
 
 # Invoke jobs via workflows
