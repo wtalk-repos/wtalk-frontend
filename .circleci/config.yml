@@ -17,6 +17,8 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+      -run:
+          command: sudo apt install -y lftp
       - run:
           command: lftp -e \"set ssl:verify-certificate no; open $FTP_HOST; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --verbose --delete ./ $FTP_TARGET_DIR;\
 
