@@ -1,0 +1,21 @@
+.wrapper {
+    background-image: url('/assets/background.jpg');
+    border-left: 1px solid #ededed;
+}
+
+.img-container {
+    background-color: #eeeee1;
+    border: 2px solid #2e2e2e;
+}
+
+.btn-chat {
+    font-size: 1.3rem;
+    color: #eeeee1;
+    background-color: #2e2e2e;
+}
+
+.messages-container {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    height: 0px;
+}

@@ -11,7 +11,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
 import { TokenService } from "src/app/core/services/account/token.service";
 import { UserIconComponent } from './components/user-icon/user-icon.component';
-import { AuthGuardService } from "./directives/auth.guard";
+import { AuthGuardService } from "./guards/auth.guard";
+import { RedirectAuthorizedUser } from "./guards/redirect-authorized-user.guard";
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { AuthGuardService } from "./directives/auth.guard";
     ],
     providers: [
         AuthGuardService,
+        RedirectAuthorizedUser
     ]
 })
 export class SharedModule { }

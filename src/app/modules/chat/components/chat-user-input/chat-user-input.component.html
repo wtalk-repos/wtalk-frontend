@@ -1,0 +1,7 @@
+<div class="wrapper d-flex flex-row">
+    <button class="btn btn-transparent emoji-button"><mat-icon>mood</mat-icon></button>
+    <input type="text" placeholder="Type" class="form-control message-input" name="messageText" [(ngModel)]="messageText"/>
+    <button class="btn btn-primary send-button" (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+    </button>
+</div>

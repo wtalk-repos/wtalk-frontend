@@ -20,6 +20,11 @@
 .friend-list-item {
     padding: 0.5em 1em;
     width: 100%;
+    border-top: 1px solid #ededed;
+}
+
+.friend-list-item:last-child {
+    border-bottom: 1px solid #ededed;
 }
 
 .friend-list-item:hover {

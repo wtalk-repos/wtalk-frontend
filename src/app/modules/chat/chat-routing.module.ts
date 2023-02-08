@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from '@shared/directives/auth.guard';
+import { AuthGuardService } from '@shared/guards/auth.guard';
 import { ChatComponent } from './pages/chat/chat.component';
 
 const routes: Routes = [{

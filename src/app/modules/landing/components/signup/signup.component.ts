@@ -7,7 +7,7 @@ import { RedirectService } from 'src/app/core/services/redirect.service';
 @Component({
   selector: 'app-register',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 export class SingUpComponent implements OnInit {
   signupForm = new FormGroup({

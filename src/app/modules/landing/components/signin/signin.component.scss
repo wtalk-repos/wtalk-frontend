@@ -1,3 +1,10 @@
+@import "src/styles/variables";
+
+.container-fluid {
+    height: 100vh;
+    background-color: $primary;
+}
+
 .login-container {
     background-color: white;
     padding: 50px;
@@ -8,12 +15,13 @@
     transform: translate(0%, 17%);
 }
 
-.login-container label,span {
+.login-container label,
+span {
     margin: .6em 0;
 }
 
 .login-container span {
-    color: #797c8c!important;
+    color: #797c8c !important;
     cursor: pointer;
 }
 
@@ -21,7 +29,8 @@ button {
     flex: .3;
 }
 
-.btn-login, button {
+.btn-login,
+button {
     background-color: #4eac6d;
     color: whitesmoke;
 }
@@ -43,8 +52,8 @@ button {
     border-radius: 10px;
     width: 100%;
     outline: none;
-    background : #fff;
-    align-items : center;
+    background: #fff;
+    align-items: center;
     overflow: hidden;
 }
 
@@ -55,17 +64,16 @@ button {
     font-size: 1em;
     padding: .5em;
     color: inherit;
-    flex : auto 1 1;
-    width : 100%;
-    background : none;
+    flex: auto 1 1;
+    width: 100%;
+    background: none;
     border-radius: 10px;
 }
-  
+
 .input-icon-container .fa {
-    padding : 10px;
+    padding: 10px;
 }
 
 .input-icon-container i:hover {
     cursor: pointer;
 }
-

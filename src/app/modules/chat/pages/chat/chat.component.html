@@ -1,11 +1,14 @@
 <ng-container *ngIf="selectedFriend;else notSelectedFriend">
-    <div class="h-100">
+    <div class="wrapper h-100 d-flex flex-column">
         <app-chat-header [friend]="selectedFriend"></app-chat-header>
+        <app-chat-messages class="messages-container">
+        </app-chat-messages>
+        <app-chat-user-input></app-chat-user-input>
     </div>
 </ng-container>
 
 <ng-template #notSelectedFriend>
-    <div class="container d-flex flex-column align-items-center justify-content-center" style="height: 100%;">
+    <div class="wrapper d-flex flex-column align-items-center justify-content-center h-100">
 
         <div class="img-container rounded-circle mb-2">
             <img src="assets/logo.png" alt="logo image" style="height: 80px; width: 80px;">
