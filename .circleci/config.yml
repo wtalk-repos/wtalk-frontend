@@ -34,7 +34,7 @@ jobs:
 
       - run:
           name: "Install linux programs"
-          command: sudo apt install -y ssh && sudo apt install -y openssh-client && sudo apt install -y sshpass && sudo apt install -y zip
+          command: sudo apt install -y ssh && sudo apt install -y openssh-client && sudo apt install -y sshpass && sudo apt install -y zip && sudo apt install -y unzip
           
       - run:
           name: "Zip dist folder"
@@ -46,6 +46,10 @@ jobs:
       - run:
           name: "Deploy over sftp"
           command:  sshpass -p $FTP_PASSWORD sftp -r $FTP_USER@$FTP_HOST:$FTP_TARGET_DIR \<<< $'put dist.zip'
+      
+      - run:
+          name: "Unzip dist.zip"
+          command: ssh $FTP_USER@$FTP_HOST "if [ ! -f $FTP_TARGET_DIR/dist.zip ]; then echo "File not found" && exit 1; else rm $FTP_TARGET_DIR/*.* && unzip dist.zip -d $FTP_TARGET_DIR; fi"
 
 
 
