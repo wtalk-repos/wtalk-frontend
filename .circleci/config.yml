@@ -49,7 +49,7 @@ jobs:
       
       - run:
           name: "Unzip dist.zip"
-          command: sshpass -p $FTP_PASSWORD ssh $FTP_USER@$FTP_HOST "if [ ! -f $FTP_TARGET_DIR/dist.zip ]; then echo "File not found" && exit 1; else rm $FTP_TARGET_DIR/*.* && unzip dist.zip -d $FTP_TARGET_DIR; fi"
+          command: sshpass -p $FTP_PASSWORD ssh $FTP_USER@$FTP_HOST "sudo apt install unzip; if [ ! -f $FTP_TARGET_DIR/dist.zip ]; then echo "File not found" && exit 1; else rm -rf !($FTP_TARGET_DIR/*.zip) && unzip dist.zip -d $FTP_TARGET_DIR; fi"
 
 
 
