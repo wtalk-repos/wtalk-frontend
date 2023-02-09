@@ -15,14 +15,23 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: "Build"
+          command: npm run build
       - run: mkdir dist && cd dist && touch test.txt && echo 'bla' > test.txt && cd ..
 
       - run:
-          command: sudo apt install -y lftp
+          name: "Install linux programs"
+          command: sudo apt install -y sftp && sudo apt install -y ssh-pass && sudo apt install -y zip
+          
       - run:
-          command: lftp -e "set ssl:verify-certificate no; open $FTP_HOST -p $FTP_PORT; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --verbose --delete ./dist/ $FTP_TARGET_DIR;bye;"
+          name: "Zip dist folder"
+          command: zip -r ./dist/ dist.zip
+
+      - run:
+          name: "Deploy over sftp"
+          command:  sshpass -p $FTP_PASSWORD sftp -r $FTP_USER@$FTP_HOST:$FTP_TARGET_DIR \<<< $'put dist.zip'
+
+
 
 
 # Invoke jobs via workflows
