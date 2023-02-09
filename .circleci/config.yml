@@ -50,7 +50,7 @@ jobs:
       - run:
           name: "Unzip dist.zip"
           command: | 
-            sshpass -p $FTP_PASSWORD ssh $FTP_USER@$FTP_HOST "
+            sshpass -p $FTP_PASSWORD ssh $FTP_USER@$FTP_HOST 'bash -s -- uno' \<< "
               sudo apt install unzip; 
               if [ ! -f $FTP_TARGET_DIR/dist.zip ]; 
                 then echo "File not found" && exit 1; 
