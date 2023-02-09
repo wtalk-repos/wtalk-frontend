@@ -28,7 +28,6 @@ jobs:
       - run:
           name: "Build"
           command: npm run build
-      - run: mkdir dist && cd dist && touch test.txt && echo 'bla' > test.txt && cd ..
 
       - run:
           name: "Install linux programs"
