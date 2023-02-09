@@ -41,6 +41,9 @@ jobs:
           command: zip -r dist.zip ./dist/*
 
       - run:
+          command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
+          
+      - run:
           name: "Deploy over sftp"
           command:  sshpass -p $FTP_PASSWORD sftp -r $FTP_USER@$FTP_HOST:$FTP_TARGET_DIR \<<< $'put dist.zip'
 
