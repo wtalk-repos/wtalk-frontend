@@ -38,7 +38,7 @@ jobs:
           
       - run:
           name: "Zip dist folder"
-          command: zip -r -j dist.zip ./dist/wTalk/*
+          command: cd ./dist/wTalk ; zip -r ../../dist.zip . * ; cd ../../
 
       - run:
           command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
