@@ -34,7 +34,7 @@ jobs:
 
       - run:
           name: "Install linux programs"
-          command: sudo apt install -y ssh && sudo apt install -y openssh-client && sudo apt install -y sshpass && sudo apt install -y zip && sudo apt install -y unzip
+          command: sudo apt install -y ssh && sudo apt install -y openssh-client && sudo apt install -y sshpass && sudo apt install -y zip
           
       - run:
           name: "Zip dist folder"
@@ -51,11 +51,9 @@ jobs:
           name: "Unzip dist.zip"
           command: | 
             sshpass -p $FTP_PASSWORD ssh $FTP_USER@$FTP_HOST "
-              apt install unzip; 
               if [ ! -f $FTP_TARGET_DIR/dist.zip ]; 
                 then echo "File not found" && exit 1; 
               else
-                shopt -s extglob 
                 ls $FTP_TARGET_DIR | grep -v dist.zip | xargs rm
                 unzip $FTP_TARGET_DIR/dist.zip -d $FTP_TARGET_DIR;
               fi"
