@@ -36,6 +36,9 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
+      - run:
+          command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
+          
       - attach_workspace:
           at: dist
           
@@ -49,9 +52,6 @@ jobs:
       - run:
           name: "Zip dist folder"
           command: cd ./dist/wTalk ; zip -r ../../dist.zip . * ; cd ../../
-
-      - run:
-          command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
           
       - run:
           name: "Deploy over sftp"
