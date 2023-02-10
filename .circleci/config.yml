@@ -5,13 +5,9 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  deploy-to-vps:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  build:
     docker:
       - image: cimg/node:16.19.0
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
       
@@ -28,7 +24,14 @@ jobs:
       - run:
           name: "Build"
           command: npm run build
-
+  deploy-to-vps:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/node:16.19.0
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
       - run:
           command: sudo apt update
 
@@ -58,12 +61,13 @@ jobs:
                 unzip -o $FTP_TARGET_DIR/dist.zip -d $FTP_TARGET_DIR;
               fi"
 
-
-
-
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  test-workflow:
+  deploy-to-vps-workflow:
     jobs:
-      - deploy-to-vps
+      - build
+      - deploy-to-vps:
+         requires:
+            - build
+
