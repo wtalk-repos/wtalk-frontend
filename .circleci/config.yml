@@ -74,7 +74,9 @@ jobs:
               else
                 ls $FTP_TARGET_DIR | grep -v dist.zip | xargs rm
                 unzip -o $FTP_TARGET_DIR/dist.zip -d $FTP_TARGET_DIR;
-              fi"
+              fi;
+              rm $FTP_TARGET_DIR/dist.zip"
+    
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
