@@ -54,11 +54,11 @@ jobs:
           command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
                 
       - attach_workspace:
-          at: dist
+          at: /tmp/dist
 
       - run:
           name: "Zip dist folder"
-          command: cd ./dist/wTalk ; zip -r ../../dist.zip . * ; cd ../../
+          command: cd /tmp/dist/wTalk ; zip -r ~/dist.zip . * ; cd ~
           
       - run:
           name: "Deploy over sftp"
