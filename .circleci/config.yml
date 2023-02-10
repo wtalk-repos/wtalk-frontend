@@ -47,7 +47,7 @@ jobs:
           command: | 
             if [ ! -e "~/.ssh/config" ] ; then
               mkdir -p ~/.ssh;
-              touch "~/.ssh/config";
+              touch ~/.ssh/config;
             fi;
 
       - run:
