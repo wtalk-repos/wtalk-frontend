@@ -37,17 +37,16 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - run:
-          command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
-          
-      # - attach_workspace:
-      #     at: dist
-          
-      - run:
           command: sudo apt update
 
       - run:
           name: "Install linux programs"
           command: sudo apt install -y ssh && sudo apt install -y openssh-client && sudo apt install -y sshpass && sudo apt install -y zip
+      - run:
+          command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
+                
+      - attach_workspace:
+          at: dist
           
       - run:
           name: "Zip dist folder"
