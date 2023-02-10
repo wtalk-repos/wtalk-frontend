@@ -24,10 +24,10 @@ jobs:
       - run:
           name: "Build"
           command: npm run build
-      - persist_to_workspace:
-          root: dist
-          paths:
-            - "wTalk"
+      # - persist_to_workspace:
+      #     root: dist
+      #     paths:
+      #       - "wTalk"
   deploy-to-vps:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -39,8 +39,8 @@ jobs:
       - run:
           command: echo "HOST *" > ~/.ssh/config && echo "StrictHostKeyChecking no" >> ~/.ssh/config
           
-      - attach_workspace:
-          at: dist
+      # - attach_workspace:
+      #     at: dist
           
       - run:
           command: sudo apt update
