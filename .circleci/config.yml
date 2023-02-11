@@ -59,11 +59,11 @@ jobs:
 
       - run:
           name: "Zip dist folder"
-          command: cd /tmp/dist/wTalk ; zip -r ~/dist.zip . * ; cd ~
+          command: cd /tmp/dist/wTalk ; zip  dist.zip . *
           
       - run:
           name: "Deploy over sftp"
-          command:  sshpass -p $FTP_PASSWORD sftp -r $FTP_USER@$FTP_HOST:$FTP_TARGET_DIR \<<< $'put dist.zip'
+          command:  sshpass -p $FTP_PASSWORD sftp -r $FTP_USER@$FTP_HOST:$FTP_TARGET_DIR \<<< $'put /tmp/dist/wTalk/dist.zip'
       
       - run:
           name: "Unzip dist.zip"
