@@ -24,11 +24,6 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.signalRService.startConnection();
 
-    this.signalRService.hubConnection.on('newMessage', (data) => {
-      console.log(data);
-      console.log('as;lkdjfs')
-    })
-
     this.friendService.selectedFriend.subscribe(selectedFriend => {
       this.selectedFriend = selectedFriend;
     });
@@ -36,13 +31,13 @@ export class ChatComponent implements OnInit {
     for (let i = 0; i < 100; i++) {
       this.messages.push({
         receiver: this.selectedFriend,
-        receiverId:this.selectedFriend.id,
+        receiverId: this.selectedFriend.id,
         text: 'Lorem ipsum '
       })
     }
     this.messages.push({
       receiver: this.accountService.currentUser,
-      receiverId:this.selectedFriend.id,
+      receiverId: this.selectedFriend.id,
       text: 'Lorem ipsum '
     })
   }
