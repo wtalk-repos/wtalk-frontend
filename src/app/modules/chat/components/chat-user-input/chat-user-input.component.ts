@@ -4,6 +4,7 @@ import { MessageService } from '@chat/services/message.service';
 import { SignalRService } from '@chat/services/signal-r.service';
 import { NewIdResponse } from '@shared/api-responses/new-id-response';
 import { Friend } from '@shared/models/friend';
+import { Observable, Subscription } from 'rxjs';
 import { FriendService } from 'src/app/modules/friends/services/friends.service';
 
 @Component({
@@ -39,5 +40,16 @@ export class ChatUserInputComponent implements OnInit {
       message.id = newMessageResponse.id as number;
       this.messageService.newMessage(message);
     });
+  }
+
+  onKeyDown(e: KeyboardEvent) {
+    if (e.ctrlKey && e.key == "Enter") {
+      // TODO new line
+      return;
+    }
+    if (e.key == "Enter") {
+      this.sendMessage();
+      this.messageText = '';
+    }
   }
 }
