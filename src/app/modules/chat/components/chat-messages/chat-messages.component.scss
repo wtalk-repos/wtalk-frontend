@@ -23,6 +23,7 @@
         background-color: $secondary;
         box-shadow: none;
         text-align: right;
+        color: white;
     }
 
     .conversation-list {
@@ -33,6 +34,10 @@
         margin-right: 0;
         margin-left: 1em;
     }
+
+    .ctext-wrap {
+        box-shadow: 2px 2px 5px #9f9f9f
+    }
 }
 
 .conversation-list {
@@ -40,6 +45,10 @@
     position: relative;
     align-items: flex-end;
     max-width: 80%;
+}
+
+.ctext-wrap {
+    box-shadow: 2px 2px 5px #e5e5e5;
 }
 
 .ctext-wrap-content {
