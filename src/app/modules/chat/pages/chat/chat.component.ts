@@ -28,17 +28,5 @@ export class ChatComponent implements OnInit {
       this.selectedFriend = selectedFriend;
     });
 
-    for (let i = 0; i < 100; i++) {
-      this.messages.push({
-        receiver: this.selectedFriend,
-        receiverId: this.selectedFriend.id,
-        text: 'Lorem ipsum '
-      })
-    }
-    this.messages.push({
-      receiver: this.accountService.currentUser,
-      receiverId: this.selectedFriend.id,
-      text: 'Lorem ipsum '
-    })
   }
 }
