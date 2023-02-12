@@ -1,7 +1,7 @@
 <div class="wrapper">
     <ul class="list-unstyled">
         <li *ngFor="let message of messages"
-            [ngClass]="[' chat-list ', currentUser?.id==message.sender?.id?' right ':'']">
+            [ngClass]="[' chat-list ', currentUser?.id==message.senderId?' right ':'']">
             <div class="conversation-list">
                 <div class="chat-avatar">
                     <app-user-icon [avatar]="message.sender?.avatar"></app-user-icon>
