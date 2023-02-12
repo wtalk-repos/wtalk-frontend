@@ -4,8 +4,9 @@ import { Pagination } from '../api-responses/pagination';
 import { PaginationParameters } from '../models/pagination-parameters';
 import { map } from 'rxjs/operators';
 import { ConfigurationService } from 'src/app/core/services/configuration/configuration.service';
+import { NewIdResponse } from '@shared/api-responses/new-id-response';
 
-export abstract class AbstractCrudRestService<T> {
+export abstract class AbstractCRUDService<T> {
     url: string;
     constructor(
         protected _http: HttpClient,
@@ -54,5 +55,18 @@ export abstract class AbstractCrudRestService<T> {
                 return newItems;
             })
         );
+    }
+
+    addOne(data: T): Observable<NewIdResponse> {
+        return this._http.post(this.url, data) as Observable<NewIdResponse>;
+    }
+
+
+    deleteOne(id: string | number): Observable<T> {
+        return this._http.delete(`${this.url}/${id}`) as Observable<T>;
+    }
+
+    updateOne(data: T): Observable<T> {
+        return this._http.put(`${this.url}`, data) as Observable<T>;
     }
 }
