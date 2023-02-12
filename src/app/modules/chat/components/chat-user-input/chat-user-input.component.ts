@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Message } from '@chat/models/message';
 import { MessageService } from '@chat/services/message.service';
 import { SignalRService } from '@chat/services/signal-r.service';
+import { AccountService } from '@core/services/account/account.service';
 import { NewIdResponse } from '@shared/api-responses/new-id-response';
 import { Friend } from '@shared/models/friend';
 import { Observable, Subscription } from 'rxjs';
@@ -17,7 +18,8 @@ export class ChatUserInputComponent implements OnInit {
   selectedFriend: Friend;
   constructor(
     private messageService: MessageService,
-    private friendService: FriendService
+    private friendService: FriendService,
+    private accountService:AccountService,
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class ChatUserInputComponent implements OnInit {
       return;
     }
     let message = new Message({
+      sender:this.accountService.currentUser,
+      senderId:this.accountService.currentUser.id,
       receiver: this.selectedFriend,
       receiverId: this.selectedFriend.id,
       text: this.messageText

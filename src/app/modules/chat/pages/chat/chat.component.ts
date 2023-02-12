@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Message } from "@chat/models/message";
+import { MessageService } from "@chat/services/message.service";
 import { SignalRService } from "@chat/services/signal-r.service";
 import { AccountService } from "@core/services/account/account.service";
 import { Friend } from "@shared/models/friend";
@@ -11,13 +12,14 @@ import { FriendService } from "src/app/modules/friends/services/friends.service"
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+  @ViewChild('messagesContainer') messagesContainer: ElementRef;
   selectedFriend: Friend;
   messages: Message[] = new Array<Message>();
 
   constructor(
     private friendService: FriendService,
-    private accountService: AccountService,
-    private signalRService: SignalRService
+    private signalRService: SignalRService,
+    private messageService: MessageService
   ) {
   }
 
@@ -27,18 +29,18 @@ export class ChatComponent implements OnInit {
     this.friendService.selectedFriend.subscribe(selectedFriend => {
       this.selectedFriend = selectedFriend;
     });
-
-    for (let i = 0; i < 100; i++) {
-      this.messages.push({
-        receiver: this.selectedFriend,
-        receiverId: this.selectedFriend.id,
-        text: 'Lorem ipsum '
-      })
-    }
-    this.messages.push({
-      receiver: this.accountService.currentUser,
-      receiverId: this.selectedFriend.id,
-      text: 'Lorem ipsum '
+    this.messageService.$messages.subscribe(() => {
+      this.scrollToBottom();
     })
+  }
+  scrollToBottom = () => {
+    if (!this.messagesContainer) return;
+    try {
+      setTimeout(() => {
+        this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
+      }, 50);
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

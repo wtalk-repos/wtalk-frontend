@@ -7,7 +7,7 @@ export class PaginationParameters {
   pageIndex: number = 1;
   pageSize: number;
   search: string|undefined = undefined;
-  orderBy: string|undefined = undefined;
+  sort: string|undefined = undefined;
   getHttpParams(): HttpParams {
     let httpParams = new HttpParams();
 

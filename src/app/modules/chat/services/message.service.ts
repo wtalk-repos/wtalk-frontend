@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Message } from '@chat/models/message';
 import { ConfigurationService } from '@core/services/configuration/configuration.service';
-import { AbstractCrudRestService } from '@shared/services/abstract-command-rest.service';
+import { AbstractCRUDService } from '@shared/services/abstract-crud.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
-export class MessageService extends AbstractCrudRestService<Message>{
+export class MessageService extends AbstractCRUDService<Message>{
     private _messages = new Array<Message>();
 
     $messages: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>([]);
@@ -25,7 +25,7 @@ export class MessageService extends AbstractCrudRestService<Message>{
         this._messages.push(message)
         this.$messages.next(this._messages);
     }
-    
+
     loadMessages(messages: Message[]) {
         this.$messages.next(messages);
     }
