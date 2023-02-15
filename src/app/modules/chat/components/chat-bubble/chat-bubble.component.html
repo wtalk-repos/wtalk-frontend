@@ -1,0 +1,14 @@
+<div [ngClass]="[' chat-list ', currentUser?.id==message.senderId?' right ':'']">
+    <div class="conversation-list">
+        <div class="chat-avatar">
+            <app-user-icon [avatar]="message.sender?.avatar"></app-user-icon>
+        </div>
+        <div class="ctext-wrap">
+            <div class="ctext-wrap-content">
+                <p class="text-center mb-0">
+                    {{message.text}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
