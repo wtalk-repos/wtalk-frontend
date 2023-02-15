@@ -8,6 +8,7 @@ import { ChatUserInputComponent } from './components/chat-user-input/chat-user-i
 import { ChatMessagesComponent } from './components/chat-messages/chat-messages.component';
 import { SignalRService } from './services/signal-r.service';
 import { MessageService } from './services/message.service';
+import { ChatBubbleComponent } from './components/chat-bubble/chat-bubble.component';
 
 
 
@@ -17,7 +18,8 @@ import { MessageService } from './services/message.service';
     ChatComponent,
     ChatHeaderComponent,
     ChatUserInputComponent,
-    ChatMessagesComponent
+    ChatMessagesComponent,
+    ChatBubbleComponent
   ],
   imports: [
     CommonModule,

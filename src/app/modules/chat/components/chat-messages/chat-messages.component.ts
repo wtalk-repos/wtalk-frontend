@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Message } from '@chat/models/message';
 import { MessageService } from '@chat/services/message.service';
 import { SignalRService } from '@chat/services/signal-r.service';
@@ -25,7 +25,8 @@ export class ChatMessagesComponent implements OnInit {
   constructor(
     private accountService: AccountService,
     private messageService: MessageService,
-    private signalRService: SignalRService
+    private signalRService: SignalRService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class ChatMessagesComponent implements OnInit {
     this.signalRService.hubConnection.on('newMessage', (message: Message) => {
       console.log(message);
       this.messageService.newMessage(message);
+      this.cdr.detectChanges();
     })
   }
 

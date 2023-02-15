@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class MessageService extends AbstractCRUDService<Message>{
     private _messages = new Array<Message>();
 
-    $messages: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>([]);
+    $messages: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>(this._messages);
 
     constructor(
         private http: HttpClient,
@@ -27,6 +27,7 @@ export class MessageService extends AbstractCRUDService<Message>{
     }
 
     loadMessages(messages: Message[]) {
+        this._messages = messages;
         this.$messages.next(messages);
     }
 }
