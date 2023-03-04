@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl:'http://38.242.207.44:8000/api/',
+  apiUrl:'http://38.242.207.44:8080/api/',
   production: true,
-  chatSignalEndpoint:'http://38.242.207.44:8000/api/hubs/chat'
+  chatSignalEndpoint:'http://38.242.207.44:8080/api/hubs/chat'
 };
 
 /*
