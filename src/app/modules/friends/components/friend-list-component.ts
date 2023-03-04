@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Pagination } from '@shared/api-responses/pagination';
+import { SearchFriendsComponent } from '@shared/components/search-friends/search-friends.component';
 import { Friend } from '@shared/models/friend';
 import { PaginationParameters } from '@shared/models/pagination-parameters';
 import { FriendService } from '../services/friends.service';
@@ -17,7 +19,8 @@ export class FriendListComponent implements OnInit {
     selectedFriend: Friend;
 
     constructor(
-        private friendService: FriendService
+        private friendService: FriendService,
+        private matDialog: MatDialog
     ) { }
 
     ngOnInit(): void {
@@ -32,5 +35,11 @@ export class FriendListComponent implements OnInit {
     selectFriendFromList(friend: Friend) {
         this.selectedFriend = friend;
         this.friendService.selectedFriend.next(friend);
+    }
+    openSearchFriendsComponent() {
+        this.matDialog.open(SearchFriendsComponent, {
+            width: '50vw',
+            height: '50vh',
+        });
     }
 }

@@ -13,11 +13,17 @@ import { TokenService } from "src/app/core/services/account/token.service";
 import { UserIconComponent } from './components/user-icon/user-icon.component';
 import { AuthGuardService } from "./guards/auth.guard";
 import { RedirectAuthorizedUser } from "./guards/redirect-authorized-user.guard";
+import { SearchFriendsComponent } from './components/search-friends/search-friends.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatCommonModule } from "@angular/material/core";
+import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 
 
 @NgModule({
     declarations: [
-        UserIconComponent
+        UserIconComponent,
+        SearchFriendsComponent,
+        SearchBarComponent
     ],
     imports: [
         CommonModule,
@@ -36,15 +42,20 @@ import { RedirectAuthorizedUser } from "./guards/redirect-authorized-user.guard"
         MatToolbarModule,
         MatIconModule,
         LayoutModule,
+        MatCommonModule,
         MatButtonModule,
         MatSidenavModule,
         MatListModule,
+        MatDialogModule,
         ReactiveFormsModule,
         UserIconComponent
     ],
     providers: [
         AuthGuardService,
         RedirectAuthorizedUser
+    ],
+    entryComponents:[
+        SearchFriendsComponent
     ]
 })
 export class SharedModule { }

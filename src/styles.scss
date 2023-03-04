@@ -1,6 +1,7 @@
 @import "src/styles/variables";
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import 'src/styles/bootstrap-customization';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 mat-dialog-container {
     width: 100%;

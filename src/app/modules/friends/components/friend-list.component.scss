@@ -3,9 +3,20 @@
 }
 
 .header {
+    display: flex;
+    align-items: center;
     font-weight: bold;
     font-size: 1.5rem;
     padding: 0.25em 0.5em;
+    height: 3.275em;
+}
+
+.add-friend-button {
+    height: 1.5em;
+    width: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .wrapper {

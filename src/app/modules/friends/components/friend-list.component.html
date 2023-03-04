@@ -1,5 +1,14 @@
 <div class="wrapper">
-    <div class="header">Chats</div>
+    <div class="row header">
+        <div class="col">
+            Chats
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+            <button class="btn btn-secondary add-friend-button" (click)="openSearchFriendsComponent()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
 
     <ul class="friend-list" *ngIf="paginationFriends">
         <li *ngFor="let friend of paginationFriends.items"
