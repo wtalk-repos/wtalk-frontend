@@ -32,4 +32,17 @@ export class FriendService {
         })
       ) as Observable<Pagination<Friend>>;
   }
+  searchFriends(paginationParameters: PaginationParameters) {
+    return this._http
+      .get(this._configuration.apiUrl + 'user/search', { params: paginationParameters?.getHttpParams() })
+      .pipe(
+        map((data: any) => {
+          let pagination = data.pagination as Pagination<Friend>;
+          pagination.items = pagination.items.map((item) =>
+            Object.assign(new Friend(), item)
+          );
+          return data.pagination;
+        })
+      ) as Observable<Pagination<Friend>>;
+  }
 }

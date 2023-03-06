@@ -24,9 +24,12 @@ export class SearchBarComponent implements OnInit {
     console.log(fb);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
+    this.emitSearch();
+  }
+  emitSearch() {
     this.search.emit(this.searchForm.get('searchTerm')?.value as any);
   }
 }

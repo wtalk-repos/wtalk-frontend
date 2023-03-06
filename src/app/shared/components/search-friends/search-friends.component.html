@@ -1,4 +1,29 @@
 <div class="wrapper">
-    <app-search-bar></app-search-bar>
-    <hr/>
+    <app-search-bar (search)="search($event)"></app-search-bar>
+    <hr />
+    <ng-container class="recent-searches-container" *ngIf="!searchTerm;else searchResults">
+        <div class="recent-searches-title">Recent searches</div>
+        <div class="no-recent-searches-container">
+            No recent searches
+        </div>
+    </ng-container>
+    <ng-template #searchResults>
+        <ul class="search-results-list">
+            <li *ngFor="let user of pagination.items">
+                <div class="row d-flex align-items-center">
+                    <div class="col-1">
+                        <app-user-icon [avatar]="user.avatar"></app-user-icon>
+                    </div>
+                    <div class="col-8">
+                        {{user.username}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ng-container *ngIf="pagination.items.length==0">
+            <div class="no-search-results">
+                No search results
+            </div>
+        </ng-container>
+    </ng-template>
 </div>
