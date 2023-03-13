@@ -7,6 +7,7 @@
             No recent searches
         </div>
     </ng-container>
+
     <ng-template #searchResults>
         <ul class="search-results-list">
             <li *ngFor="let user of pagination.items">
@@ -20,10 +21,13 @@
                 </div>
             </li>
         </ul>
-        <ng-container *ngIf="pagination.items.length==0">
+        <ng-container *ngIf="pagination.items.length==0 && loading==false">
             <div class="no-search-results">
                 No search results
             </div>
+        </ng-container>
+        <ng-container *ngIf="loading==true">
+          <mat-progress-spinner class="spinner" color="primary" mode="indeterminate" diameter="50"></mat-progress-spinner>
         </ng-container>
     </ng-template>
 </div>

@@ -30,3 +30,11 @@
 .no-search-result {
     font-weight: 2rem;
 }
+.spinner{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 1em;
+    width: 1em;
+}

@@ -17,6 +17,7 @@ import { SearchFriendsComponent } from './components/search-friends/search-frien
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatCommonModule } from "@angular/material/core";
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { SearchBarComponent } from "./components/search-bar/search-bar.component
         MatSidenavModule,
         MatListModule,
         ReactiveFormsModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         CommonModule,
@@ -42,13 +44,14 @@ import { SearchBarComponent } from "./components/search-bar/search-bar.component
         MatToolbarModule,
         MatIconModule,
         LayoutModule,
+        ReactiveFormsModule,
+        UserIconComponent,
         MatCommonModule,
         MatButtonModule,
         MatSidenavModule,
         MatListModule,
         MatDialogModule,
-        ReactiveFormsModule,
-        UserIconComponent
+        MatProgressSpinnerModule
     ],
     providers: [
         AuthGuardService,
