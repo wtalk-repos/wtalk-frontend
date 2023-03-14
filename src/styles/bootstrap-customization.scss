@@ -1,88 +1,90 @@
 @import "src/styles/variables";
 
 .btn {
-    border: none !important;
+  border: none !important;
 }
 
 .btn:focus {
-    box-shadow: 0 0 0 0.2rem $secondary !important;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 0.01rem $secondary !important;
 }
 
 .btn-primary {
-    background-color: $primary !important;
-    color: white;
-    --bs-btn-color: #fff;
-    --bs-btn-bg: $primary !important;
-    --bs-btn-border-color: $primary !important;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: $primary !important;
-    --bs-btn-hover-border-color: $primary !important;
-    --bs-btn-focus-shadow-rgb: 49, 132, 253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: $primary !important;
-    --bs-btn-active-border-color: $primary !important;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: $primary !important;
-    --bs-btn-disabled-border-color: $primary !important;
-    border-color: inherit !important;
-    outline-color: inherit !important;
+  background-color: $primary !important;
+  color: white;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: $primary !important;
+  --bs-btn-border-color: $primary !important;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: $primary !important;
+  --bs-btn-hover-border-color: $primary !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: $primary !important;
+  --bs-btn-active-border-color: $primary !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: $primary !important;
+  --bs-btn-disabled-border-color: $primary !important;
+  border-color: inherit !important;
+  outline-color: inherit !important;
 }
 
 .btn-primary:focus {
-    color: white;
-    outline: none;
-    border: none;
-    box-shadow: 0 0 0 0.2rem $secondary !important;
-    background-color: $primary !important;
+  color: white;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 0 0.2rem $secondary !important;
+  background-color: $primary !important;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus {
-    box-shadow: 0 0 0 0.2rem #48824d !important;
+  box-shadow: 0 0 0 0.2rem #48824d !important;
 }
 
 .btn-secondary {
-    background-color: $secondary !important;
-    color: white;
-    --bs-btn-color: #fff;
-    --bs-btn-bg: $secondary !important;
-    --bs-btn-border-color: $secondary !important;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: $secondary !important;
-    --bs-btn-hover-border-color: $secondary !important;
-    --bs-btn-focus-shadow-rgb: 130, 138, 145;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: $secondary !important;
-    --bs-btn-active-border-color: $secondary !important;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: $secondary !important;
-    --bs-btn-disabled-border-color: $secondary !important;
-    border-color: none;
-    outline-color: none;
+  background-color: $secondary !important;
+  color: white;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: $secondary !important;
+  --bs-btn-border-color: $secondary !important;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: $secondary !important;
+  --bs-btn-hover-border-color: $secondary !important;
+  --bs-btn-focus-shadow-rgb: 130, 138, 145;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: $secondary !important;
+  --bs-btn-active-border-color: $secondary !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: $secondary !important;
+  --bs-btn-disabled-border-color: $secondary !important;
+  border-color: none;
+  outline-color: none;
 }
 
 .btn-default {
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
 }
 
 .btn-default:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 .btn-default:focus {
-    box-shadow: 0 0 0 0.2rem rgb(245, 245, 245) !important;
+  box-shadow: 0 0 0 0.2rem rgb(245, 245, 245) !important;
 }
 
 .btn-transparent {
-    outline: none !important;
-    border: none !important;
-    background-color: none !important;
+  outline: none !important;
+  border: none !important;
+  background-color: none !important;
 }
 
 .btn-transparent:focus {
-    outline: none !important;
-    box-shadow: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }

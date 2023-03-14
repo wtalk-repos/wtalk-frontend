@@ -21,7 +21,7 @@ export class FriendService {
 
   getFriendsList(paginationParameters: PaginationParameters): Observable<Pagination<Friend>> {
     return this._http
-      .get(this._configuration.apiUrl + 'user/friends/list', { params: paginationParameters?.getHttpParams() })
+      .get(this._configuration.apiUrl + 'friend/list', { params: paginationParameters?.getHttpParams() })
       .pipe(
         map((data: any) => {
           let pagination = data.pagination as Pagination<Friend>;
